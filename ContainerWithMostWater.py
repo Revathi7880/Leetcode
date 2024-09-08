@@ -1,20 +1,16 @@
-def maxArea(height):
+def maxArea(height: list[int]) -> int:
     i, j = 0, len(height) - 1
     maxArea = 0 
 
     while i < j:
-        length = j - i
-        bredth = height[i] if height[i] <= height[j] else height[j]
-        area = length * bredth
-        if area > maxArea:
-            maxArea = area
-        if height[i] <= height[j]:
-            i += 1
-        else :
+        area = (j - i) * min(height[i], height[j])
+        maxArea = max(maxArea, area)
+
+        if height[i] >= height[j]:
             j -= 1
-    
+        else:
+            i += 1
     return maxArea
 
-consoleInput = input("Enter height array: ")
-height = [int(n) for n in consoleInput.split()]
-print(maxArea(height))
+print(maxArea([2,3,4,5,18,17,6]))
+        
