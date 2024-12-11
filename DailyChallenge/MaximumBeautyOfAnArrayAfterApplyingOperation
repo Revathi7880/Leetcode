@@ -1,0 +1,28 @@
+def maximumBeauty(nums, k: int) -> int:
+    def BeautyCalculator(sortedNums, target):
+        left = 0
+        right = len(sortedNums) - 1
+        index = -1
+        while left <= right:
+            mid = (left + right) // 2
+            if sortedNums[mid] <= target:
+                index = mid
+                left = mid + 1
+            else:
+                right = mid - 1
+        return index
+
+    sortedNums = sorted(nums)
+    maxBeauty = 0
+    for i in range(len(nums)):
+        target = sortedNums[i] + 2 * k
+        index = BeautyCalculator(sortedNums, target)
+        beauty = index - i + 1
+        maxBeauty = max(beauty, maxBeauty)
+    return maxBeauty
+
+print(maximumBeauty([87,41,2,24,75,45,91,46,96,91], 0))
+
+
+
+        
