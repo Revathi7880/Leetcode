@@ -22,7 +22,7 @@ def convert(s: str, numRows: int) -> str:
     return resultString
 
 
-print(convert("PAYPALISHIRING"))
+print(convert("PAYPALISHIRING", 4))
 
 
     
