@@ -18,10 +18,8 @@ def threeSum(nums):
         while (j < k) :
             if sortedNums[i] + sortedNums[j] + sortedNums[k] < 0:
                 j = j + 1
-
             elif sortedNums[i] + sortedNums[j] + sortedNums[k] > 0:
                 k = k - 1
-
             else: 
                 result.append([sortedNums[i], sortedNums[j], sortedNums[k]])
                 j = j + 1
